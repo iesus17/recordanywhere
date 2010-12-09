@@ -1,2 +1,5 @@
 Native,Webaii
 Click,Click
+SetText,SetText
+Maxmize,Window.Maxmize()
+Navigate,NavigateTo({0})

@@ -48,5 +48,23 @@ namespace WebJournal.Common
             return ls;
         }
 
+        public static Dictionary<string, string> ReadCSVByDic(string filePathName)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            StreamReader fileReader = new StreamReader(filePathName);
+            string strLine = "";
+            while (strLine != null)
+            {
+                strLine = fileReader.ReadLine();
+                if (strLine != null && strLine.Length > 0)
+                {
+                    string[] ss = strLine.Split(',');
+                    dic[ss[0]] = ss[1];
+                }
+            }
+            fileReader.Close();
+            return dic;
+        }
+
     }
 }

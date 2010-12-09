@@ -1,2 +1,3 @@
 Type,Format
-Webaii,""
+WebaiiFind,ActiveBrowser.Find.ByAttributes<{0}>({1})
+WebaiiAction,ActiveBrowser.Actions.{0}({1})
