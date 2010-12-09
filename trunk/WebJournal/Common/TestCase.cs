@@ -5,15 +5,11 @@ using System.Text;
 
 namespace WebJournal.Common
 {
-    public class Statement: NativeObject
+    public class TestCase : NativeObject
     {
-        public virtual HtmlTag Tag { get; set; }
-        public virtual string Id { get; set; }
-        public virtual Dictionary<string, string> Attributes { get; set; }
-        public virtual HtmlAction Action { get; set; }
-        public virtual string Value { get; set; }
+        public List<Statement> Statements { get; set; }
 
-        public static Statement Parse(string script)
+        public static TestCase Parse(string script)
         {
             throw new NotImplementedException();
         }
