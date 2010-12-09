@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace GBSSOAPTest
+namespace WebJournal.Common
 {
     /// <summary>
     /// CSVUtil is a helper class handling csv files.
