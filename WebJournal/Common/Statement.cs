@@ -29,19 +29,19 @@ namespace WebJournal.Common
                 s.Id = mc[0].Groups["Id"].Value;
                 s.Action = (HtmlAction)Enum.Parse(typeof(HtmlAction), mc[0].Groups["Action"].Value);
                 s.Value = mc[0].Groups["Value"].Value;
-                string[] attributeStrings = mc[0].Groups["Attributes"].Value.Split(' ');
-                string attributeRegexString = "(?<Key>.*?)=\"(?<Value>.*?)\"";
-                s.Attributes = new Dictionary<string, string>(attributeStrings.Length);
-                foreach (string attributeString in attributeStrings)
-                {
-                    MatchCollection mcAttribute = Regex.Matches(attributeString, attributeRegexString);
-                    if (mcAttribute.Count > 0)
+                //string[] attributeStrings = mc[0].Groups["Attributes"].Value.Split(' ');
+                string attributeRegexString = "(?<Key>\\S*?)=\"(?<Value>.*?)\"";
+                //foreach (string attributeString in attributeStrings)
+                //{
+                MatchCollection mcAttribute = Regex.Matches(mc[0].Groups["Attributes"].Value, attributeRegexString);
+                s.Attributes = new Dictionary<string, string>(mcAttribute.Count);
+                    foreach(Match match in mcAttribute)
                     {
-                        string key = mcAttribute[0].Groups["Key"].Value;
-                        string value = mcAttribute[0].Groups["Value"].Value;
+                        string key = match.Groups["Key"].Value;
+                        string value = match.Groups["Value"].Value;
                         s.Attributes.Add(key, value);
                     }
-                }
+                //}
             }
             return s;
         }
