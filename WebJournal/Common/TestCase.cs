@@ -11,7 +11,7 @@ namespace WebJournal.Common
 
         public static TestCase Parse(string script)
         {
-            TestCase testCase = new TestCase();
+            TestCase testCase = new TestCase { Statements = new List<Statement>() };
             string[] statementStrings = script.Split('\n');
             foreach (string s in statementStrings)
             {
