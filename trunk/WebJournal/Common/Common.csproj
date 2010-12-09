@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>dce01ed9-b349-4cfb-9b02-ef5acd928a27</ProjectGuid>
+    <ProjectGuid>{A2837BC0-4185-4402-9BC4-1FBFEF6A462E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Common</RootNamespace>
@@ -45,8 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserStatement.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="CSVUtil.cs" />
+    <Compile Include="HtmlAction.cs" />
+    <Compile Include="HtmlTag.cs" />
+    <Compile Include="InputStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statement.cs" />
+    <Compile Include="StatementFactory.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CSV\Action.csv" />
+    <None Include="CSV\ScriptFormat.csv" />
+    <None Include="CSV\Tag.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

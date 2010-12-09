@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>4207b042-8e8c-43b8-8b34-1bcfb968aba1</ProjectGuid>
+    <ProjectGuid>{3494C9AB-CAC4-40AD-B9B7-57D39D06539D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Replay</RootNamespace>
