@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace WebJournal.Common
 {
@@ -19,7 +20,30 @@ namespace WebJournal.Common
         
         public static Statement Parse(string script)
         {
-            throw new NotImplementedException();
+            Statement s = new Statement();
+            string regexString = "{(?<Tag>.*?)}:{(?<Id>.*?)}:{(?<Attributes>.*?)}:{(?<Action>.*?)}:{(?<Value>.*?)}";
+            MatchCollection mc = Regex.Matches(script, regexString);
+            if(mc.Count> 0)
+            {
+                s.Tag = (HtmlTag)Enum.Parse(typeof(HtmlTag), mc[0].Groups["Tag"].Value);
+                s.Id = mc[0].Groups["Id"].Value;
+                s.Action = (HtmlAction)Enum.Parse(typeof(HtmlAction), mc[0].Groups["Action"].Value);
+                s.Value = mc[0].Groups["Value"].Value;
+                string[] attributeStrings = mc[0].Groups["Attributes"].Value.Split(' ');
+                string attributeRegexString = "(?<Key>.*?)=\"(?<Value>.*?)\"";
+                s.Attributes = new Dictionary<string, string>(attributeStrings.Length);
+                foreach (string attributeString in attributeStrings)
+                {
+                    MatchCollection mcAttribute = Regex.Matches(attributeString, attributeRegexString);
+                    if (mcAttribute.Count > 0)
+                    {
+                        string key = mcAttribute[0].Groups["Key"].Value;
+                        string value = mcAttribute[0].Groups["Value"].Value;
+                        s.Attributes.Add(key, value);
+                    }
+                }
+            }
+            return s;
         }
 
         public override string ToCustomScript(string type)
@@ -42,7 +66,12 @@ namespace WebJournal.Common
 
         public override string ToNativeScript()
         {
-            throw new NotImplementedException();
+            List<string> attributeStrings = new List<string>(Attributes.Count);
+            foreach (KeyValuePair<string, string> pair in Attributes)
+            {
+                attributeStrings.Add(string.Format("{0}=\"{1}\"", pair.Key, pair.Value));
+            }
+            return string.Format("{{{0}}}:{{{1}}}:{{{2}}}:{{{3}}}:{{{4}}}", Tag, Id, string.Join(" ", attributeStrings.ToArray()), Action, Value);
         }
 
         public override string ToString()
