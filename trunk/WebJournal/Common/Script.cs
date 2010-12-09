@@ -5,15 +5,11 @@ using System.Text;
 
 namespace WebJournal.Common
 {
-    public class Statement: IScript
+    public class TestCase : IScript
     {
-        public HtmlTag Tag { get; set; }
-        public string Id { get; set; }
-        public Dictionary<string, string> Attributes { get; set; }
-        public HtmlAction Action { get; set; }
-        public string Value { get; set; }
+        public List<Statement> Statements { get; set; }
 
-        public static Statement Parse(string script)
+        public static TestCase Parse(string script)
         {
             throw new NotImplementedException();
         }
@@ -24,11 +20,6 @@ namespace WebJournal.Common
         }
 
         public string ToNativeScript()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string ToString()
         {
             throw new NotImplementedException();
         }
