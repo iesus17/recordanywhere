@@ -1,2 +1,5 @@
 Native,Webaii
-Button,Button
+Button,HtmlInputButton
+Textbox,HtmlInputText
+Anchor,HtmlAnchor
+Window,ActiveBrowser
