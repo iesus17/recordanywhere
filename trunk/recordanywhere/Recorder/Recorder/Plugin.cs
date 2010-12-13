@@ -341,7 +341,7 @@ namespace Recorder
             string identify = Finder.GetID(obj);
             if (identify == null || identify.Equals(string.Empty))
             {
-                identify = Finder.GetAttributes(obj);
+                identify = Finder.GetAttributes(obj,new string[]{Finder.tagNameAttribute});
             }
 
             return identify;

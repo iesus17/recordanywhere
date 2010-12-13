@@ -61,6 +61,27 @@ namespace Recorder.Core.Find
                 return string.Empty;
             
         }
+        public static string GetAttributes(IHTMLElement ele, string[] attris)
+        {
+            string attrs = string.Empty;
+            try
+            {
+                foreach (string tmp in attris)
+                {
+                    string ret = GetAttribute(ele, tmp);
+
+                    if (ret != null && !(ret.Equals(string.Empty)))
+                    {
+                        attrs += tmp + " : " + ret + ";";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return attrs;
+        }
 
         public static string GetAttributes(IHTMLElement ele)
         {
