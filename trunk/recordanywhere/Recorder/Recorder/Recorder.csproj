@@ -41,6 +41,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Thirdparty\Windows\AxInterop.WMPLib.dll</HintPath>
     </Reference>
+    <Reference Include="AxSHDocVw, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\Windows\AxSHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="IECaptComImports, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\Windows\IECaptComImports.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c7066b1a7ed5618f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Thirdparty\Windows\Interop.SHDocVw.dll</HintPath>
@@ -117,6 +125,7 @@
     <Content Include="Resources\imgs\Play-Pressed-icon.png" />
     <Content Include="Resources\imgs\Record-Disabled-icon.png" />
     <Content Include="Resources\imgs\Record-Hot-icon.png" />
+    <Content Include="Simple.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,6 +135,9 @@
     <EmbeddedResource Include="UserBar.resx">
       <DependentUpon>UserBar.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Capture\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,6 +35,8 @@
             this.pause = new System.Windows.Forms.Button();
             this.SteptreeView = new System.Windows.Forms.TreeView();
             this.capturePic = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // record
@@ -86,20 +88,31 @@
             this.capturePic.TabIndex = 4;
             this.capturePic.Text = "Capture";
             this.capturePic.UseVisualStyleBackColor = true;
-            this.capturePic.Click += new System.EventHandler(this.capturePic_Click);
+            this.capturePic.Click += new System.EventHandler(this.capturePic_Click2);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(229, 4);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(50, 25);
+            this.SaveBtn.TabIndex = 5;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // UserBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.capturePic);
             this.Controls.Add(this.SteptreeView);
             this.Controls.Add(this.pause);
             this.Controls.Add(this.stop);
             this.Controls.Add(this.record);
             this.Name = "UserBar";
-            this.Size = new System.Drawing.Size(133, 133);
+            this.Size = new System.Drawing.Size(285, 137);
             this.ResumeLayout(false);
 
         }
@@ -111,5 +124,7 @@
         private System.Windows.Forms.Button pause;
         public System.Windows.Forms.TreeView SteptreeView;
         private System.Windows.Forms.Button capturePic;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
